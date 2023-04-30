@@ -8,22 +8,62 @@ import org.jetbrains.annotations.NotNull;
 public class GraveStoneBlock extends Block implements CustomBlock {
     @Override
     public String getName() {
-        return null;
+        return CustomBlock.super.getName();
     }
 
     @NotNull
     @Override
     public String getNamespaceId() {
-        return null;
+        return "powernukkitx:gravestoneblock";
     }
 
     @Override
     public CustomBlockDefinition getDefinition() {
-        return null;
+        return CustomBlockDefinition.builder(this, "gravestoneblock").breakTime(2).build();
     }
 
     @Override
     public int getId() {
+        return CustomBlock.super.getId();
+    }
+
+    @Override
+    public double getFrictionFactor() {
+        return 0.1;
+    }
+
+    @Override
+    public int getBurnAbility() {
+        return 0;
+    }
+
+    @Override
+    public int getBurnChance() {
+        return 0;
+    }
+
+    @Override
+    public int getItemMaxStackSize() {
+        return 1;
+    }
+
+    @Override
+    public double getHardness() {
+        return 2;
+    }
+
+    @Override
+    public double getResistance() {
+        return 100;
+    }
+
+    @Override
+    public int getLightFilter() {
+        return 0;
+    }
+
+    @Override
+    public int getLightLevel() {
         return 0;
     }
 }
