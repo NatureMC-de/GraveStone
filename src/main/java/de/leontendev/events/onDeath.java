@@ -10,14 +10,31 @@ import cn.nukkit.level.Location;
 import cn.nukkit.math.Vector3;
 
 
+import java.util.HashMap;
+import java.util.UUID;
+
+
 public class onDeath implements Listener {
+
+    public static HashMap<UUID, Item[]> items = new HashMap<>();
+    public static HashMap<UUID, Location> deathLocations = new HashMap<>();
 
     @EventHandler
     public void onDeath(PlayerDeathEvent event){
         Player player = event.getEntity();
-        Item[] items = event.getDrops();
         Location location = event.getEntity().getLocation();
-        location.level.setBlock(new Vector3(location.x, location.y, location.z), Block.get(Block.ACACIA_WOOD_STAIRS));
+        Vector3 vector3 = new Vector3(location.x, location.y, location.z);
+        Block block = Block.get(Block.CUSTOM_BLOCK_ID_MAP.get("powernukkitx:gravestoneblock"));
+        location.level.setBlock(vector3, block);
+        if (!deathLocations.containsKey(player.getUniqueId())){
+            items.put(player.getUniqueId(), event.getDrops());
+            deathLocations.put(player.getUniqueId(), player.getLevel().getBlock(vector3).getLocation());
+        }else {
+            items.remove(player.getUniqueId());
+            deathLocations.remove(player.getUniqueId());
+            items.put(player.getUniqueId(), event.getDrops());
+            deathLocations.put(player.getUniqueId(), player.getLevel().getBlock(vector3).getLocation());
+        }
         event.setDrops(new Item[]{});
     }
 }
