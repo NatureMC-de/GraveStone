@@ -3,12 +3,13 @@ package de.leontendev.block;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.customblock.CustomBlock;
 import cn.nukkit.block.customblock.CustomBlockDefinition;
+import cn.nukkit.block.customblock.data.Geometry;
 import org.jetbrains.annotations.NotNull;
 
 public class GraveStoneBlock extends Block implements CustomBlock {
     @Override
     public String getName() {
-        return CustomBlock.super.getName();
+        return "GraveStone";
     }
 
     @NotNull
@@ -19,7 +20,7 @@ public class GraveStoneBlock extends Block implements CustomBlock {
 
     @Override
     public CustomBlockDefinition getDefinition() {
-        return CustomBlockDefinition.builder(this, "gravestoneblock").breakTime(2).build();
+        return CustomBlockDefinition.builder(this, "gravestoneblock").breakTime(1).geometry(new Geometry("geometry.grave")).build();
     }
 
     @Override

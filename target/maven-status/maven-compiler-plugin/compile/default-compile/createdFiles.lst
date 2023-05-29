@@ -1,2 +1,3 @@
-de\leontendev\GraveStone.class
 de\leontendev\block\GraveStoneBlock.class
+de\leontendev\events\onDeath.class
+de\leontendev\GraveStone.class
