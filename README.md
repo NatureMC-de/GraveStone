@@ -3,7 +3,7 @@ A GraveStone mod for [powernukkitx](https://github.com/PowerNukkitX/PowerNukkitX
 
 Installation:
 
-    - download the resource pack and the plugin in Releases
+    - download the resource pack and the plugin in [Releases](https://github.com/NatureMC-de/GraveStone/releases)
 
     - put the resource pack in the resource_packs folder
 
