@@ -18,15 +18,21 @@ public class GravesFile {
         this.plugin = plugin;
     }
 
-    public void createFile(UUID uuid, Item[] items, Location location){
+    public void setFile(UUID uuid, Item[] items, Location location){
         this.file = new File(plugin.getDataFolder() + "/graves", uuid.toString() + ".yml");
-        this.config = new Config(this.file, 2);
-        this.addDefault("grave.uuid", uuid);
-        this.addDefault("grave.items", items);
-        this.addDefault("grave.location.x", location.x);
-        this.addDefault("grave.location.y", location.y);
-        this.addDefault("grave.location.z", location.z);
-        this.addDefault("grave.location.world", location.getLevel().getName());
+        if (!file.exists() && !file.isDirectory()) {
+            this.config = new Config(this.file, 2);
+            int n = 0;
+            this.addDefault("Grave.count", n);
+            this.addDefault(n + ".grave.items", items);
+            this.addDefault(n + ".grave.location.x", location.x);
+            this.addDefault(n + ".grave.location.y", location.y);
+            this.addDefault(n + ".grave.location.z", location.z);
+            this.addDefault(n + ".grave.location.world", location.getLevel().getName());
+        }else {
+            this.config = new Config(this.file, 2);
+
+        }
     }
 
     public void addDefault(String path, Object object) {

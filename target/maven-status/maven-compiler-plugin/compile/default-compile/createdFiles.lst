@@ -1,5 +1,6 @@
 de\leontendev\block\GraveStoneBlock.class
 de\leontendev\events\onMove.class
+de\leontendev\utils\GravesFile.class
 de\leontendev\events\onDeath.class
 de\leontendev\GraveStone.class
 de\leontendev\events\onBreak.class
