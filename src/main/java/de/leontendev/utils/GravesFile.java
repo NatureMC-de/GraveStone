@@ -49,4 +49,11 @@ public class GravesFile {
             this.config.save(this.file);
         }
     }
+
+    public Item[] getItems(UUID uuid){
+        File file = new File(plugin.getDataFolder() + "/graves", uuid.toString() + ".yml");
+        Config config1 = new Config(file, 2);
+        int n = config1.getInt("Grave.count");
+        return (Item[]) config.get(n + ".grave.items");
+    }
 }
