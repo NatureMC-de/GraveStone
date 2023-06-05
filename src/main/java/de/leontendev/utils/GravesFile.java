@@ -31,7 +31,15 @@ public class GravesFile {
             this.addDefault(n + ".grave.location.world", location.getLevel().getName());
         }else {
             this.config = new Config(this.file, 2);
-
+            int n = this.config.getInt("Grave.count");
+            int n2 = n + 1;
+            this.config.set("Grave.count", n2);
+            this.config.set(n2 + ".grave.items", items);
+            this.config.set(n2 + ".grave.location.x", location.x);
+            this.config.set(n2 + ".grave.location.y", location.y);
+            this.config.set(n2 + ".grave.location.z", location.z);
+            this.config.set(n2 + ".grave.location.world", location.getLevel().getName());
+            config.save(this.file);
         }
     }
 
